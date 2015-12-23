@@ -33,3 +33,6 @@ _ReSharper*/
 *.sublime-workspace
 pkg/
 tests/secret*
+.bundle
+vendor
+Gemfile.lock
