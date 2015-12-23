@@ -83,6 +83,10 @@ If set to `true` tickets will be forwardable. The default value is `false`.
 
 If set to `true` the principle will be allowed to obtain proxy tickets. The default value is `false`.
 
+#### `rdns`
+
+If this flag is `true`, reverse name lookup will be used in addition to forward name lookup to canonicalizing hostnames for use in service principal names. The default value is `true`.
+
 # Resources
 
 ## `kerberos::realm`
@@ -120,6 +124,10 @@ This specifies the domain used to expand hostnames. The default is undefined.
 ## `kerberos::domain_realm`
 
 This resource defines a domain to realm mapping entry in the `[domian_realm]` section of the Kerberos configuration file as described in the [documentation](http://web.mit.edu/kerberos/krb5-latest/doc/admin/conf_files/krb5_conf.html#domain-realm).
+
+## `kerberos::kpasswd_server`
+
+This specifies the kpasswd server where password changes are performed. The default is undefined.
 
 ### Usage
 
