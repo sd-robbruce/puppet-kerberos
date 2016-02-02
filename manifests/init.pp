@@ -4,7 +4,10 @@
 #
 # [Remember: No empty lines between comments and class definition]
 class kerberos (
-  $ensure           = 'present',
+  $package_ensure   = $::kerberos::params::package_ensure,
+  $file_ensure      = $::kerberos::params::file_ensure,
+  $concat_ensure    = $::kerberos::params::concat_ensure,
+  $dir_ensure       = $::kerberos::params::concat_ensure,
   $package          = $::kerberos::params::package,
   $config_file      = $::kerberos::params::config_file,
   $default_realm    = $::kerberos::params::default_realm,
@@ -31,27 +34,6 @@ class kerberos (
     $proxiable,
     $rdns
   )
-
-  case $ensure {
-    'present': {
-      $package_ensure = 'installed'
-      $file_ensure    = 'file'
-      $concat_ensure  = 'present'
-      $dir_ensure     = 'directory'
-    }
-    'latest': {
-      $package_ensure = 'latest'
-      $file_ensure    = 'file'
-      $concat_ensure  = 'present'
-      $dir_ensure     = 'directory'
-    }
-    default: {
-      $package_ensure = 'absent'
-      $file_ensure    = 'absent'
-      $concat_ensure  = 'absent'
-      $dir_ensure     = 'absent'
-    }
-  }
 
   package { $package:
     ensure => $package_ensure,

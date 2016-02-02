@@ -11,6 +11,11 @@ class kerberos::params {
   $krb4_config   = '/etc/krb.conf'
   $krb4_realms   = '/etc/krb.realms'
 
+  $package_ensure = 'installed'
+  $file_ensure    = 'file'
+  $concat_ensure  = 'present'
+  $dir_ensure     = 'directory'
+
 # OS specific values
   case $::osfamily {
     'Debian': {
